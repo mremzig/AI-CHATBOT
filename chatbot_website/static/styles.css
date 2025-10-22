@@ -1,0 +1,101 @@
+/* Mevcut stiller (dokunulmadı) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #357ab8;
+}
+
+.message-container {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+
+    /* Yeni eklenen özellikler */
+    height: 370px; /* Sabit yükseklik */
+    overflow-y: auto; /* İçeriği kaydırılabilir yap */
+}
+
+.message-box {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.message-box.user {
+    flex-direction: row-reverse;
+}
+
+.message-box img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 12px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.message-text {
+    background-color: #f0f0f0;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 75%;
+    line-height: 1.5;
+}
+
+.message-box.bot .message-text {
+    background-color: #e8f1ff;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eaeaea;
+    margin: 10px 0;
+}
+

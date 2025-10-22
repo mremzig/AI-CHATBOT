@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Karakter Seçimi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Karakterini Tanımla</h2>
+    <form method="post" enctype="multipart/form-data" autocomplete="off">
+        <label>Karakter Özellikleri:</label><br>
+        <textarea name="karakter_ozellikleri" rows="5" required
+            placeholder="Örnek: Soğuk ve mesafeli, alaycı bir karakter..."></textarea><br><br>
+
+        <label>Karakter İsmi:</label><br>
+        <input type="text" name="karakter_ismi" required placeholder="Karakter ismi"><br><br>
+
+        <input type="submit" value="Sohbete Başla">
+    </form>
+</body>
+</html>

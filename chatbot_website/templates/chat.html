@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ karakter_ismi }} ile Sohbet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Tüm sohbet arayüzünü saran yeni bir sarmalayıcı -->
+    <div class="chat-wrapper">
+        <h2>{{ karakter_ismi }} ile Sohbet</h2>
+
+        <div class="message-container" id="message-container">
+            {% for user, bot in chat_history %}
+                <div class="message-box user">
+                    <img src="{{ url_for('static', filename='user.png') }}" alt="Sen">
+                    <div class="message-text"><strong>Sen:</strong><br>{{ user | safe }}</div>
+                </div>
+
+                <div class="message-box bot">
+                    <!-- Fotoğraf yolu düzeltmesi tekrar eklendi -->
+                    {% set image_path = 'uploads/' + karakter_foto if karakter_foto != 'chatbot.png' else karakter_foto %}
+                    <img src="{{ url_for('static', filename=image_path) }}" alt="{{ karakter_ismi }}">
+                    <div class="message-text"><strong>{{ karakter_ismi }}:</strong><br>{{ bot | safe }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <form class="message-form" method="post" autocomplete="off">
+            <input type="text" name="user_input" required placeholder="Mesajınızı yazın..." autofocus>
+            <input type="submit" value="Gönder">
+        </form>
+"
+        <form class="exit-form" method="post">
+            <input type="hidden" name="user_input" value="exit">
+            <input type="submit" value="Sohbeti Bitir">
+        </form>
+    </div>
+
+    <script>
+      // Her yeni mesaj geldiğinde sohbet kutusunu en alta kaydır
+      const msgContainer = document.getElementById('message-container');
+      if(msgContainer) {
+          msgContainer.scrollTop = msgContainer.scrollHeight;
+      }
+    </script>
+
+</body>
+</html>
